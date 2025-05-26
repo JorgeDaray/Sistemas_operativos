@@ -1,0 +1,18 @@
+       const animatioon = bote.animatee(
+        [{ Right: boteRight + 'px' }, { Right: targetRight + 'px' }],
+        { duration: 1000 }
+        );
+    
+        animatioon.onfinish = function() {
+            // Mover el ícono seleccionado al frame derecho
+            const selectedIcon = frame2.querySelector('.selected');
+            if (selectedIcon) {
+                selectedIcon.classList.remove('selected');
+                frame1.appendChild(selectedIcon);
+                // Verificar si el bote debe quedarse en el lado derecho del frame2
+                if (bote.offsetRight >= targetRight) {
+                    frame2.appendChild(bote);
+                }
+            }
+        };
+    
